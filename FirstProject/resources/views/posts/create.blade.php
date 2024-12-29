@@ -1,5 +1,6 @@
 <x-Layout>
     <center>
+    <h1>Create</h1>
     <form style="width:25%" method="post">
     @csrf
         <label for="title">Title</label>
