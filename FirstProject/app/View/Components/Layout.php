@@ -6,15 +6,16 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
+    public $title;
+    public function __construct($title)
+    {
+$this->title = $title;
+    }
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
 
     /**
      * Get the view / contents that represent the component.
@@ -23,6 +24,6 @@ class Layout extends Component
      */
     public function render()
     {
-        return view('components.layout');
+        return view('components.layout', ["title", $this->title]);
     }
 }

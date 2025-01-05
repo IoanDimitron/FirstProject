@@ -1,4 +1,4 @@
-<x-Layout>
+<x-Layout title="Create">
     <center>
     <h1>Create</h1>
     <form style="width:25%" method="post">

@@ -1,4 +1,4 @@
-<x-Layout>
+<x-Layout title="Edit">
     <center>
     <h1>Edit</h1>
     <form style="width:25%" method="post">

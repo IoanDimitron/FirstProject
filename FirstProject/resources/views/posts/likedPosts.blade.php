@@ -1,4 +1,4 @@
-<x-Layout title="Posts">
+<x-Layout title="My Liked Posts">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="container">
         <div class="row">
@@ -10,19 +10,21 @@
                         <p class="card-text">{{$post->desc}}</p>
                     </div>
                 @auth 
+
+                <span>{{$post->likes}}</span>
                 @if($post->liked)
                 <form method="POST" action='/posts/unlike'> 
                     @csrf
                     <input type="hidden" name="post_id"    value="{{ $post->id }}" >
                     <input type="hidden" name="user_id"    value="{{ auth()->user()->id }}" >    
-                    <button style="font-size:24px; color:red">{{$post->likes}}<i class="fa fa-heart"></i></button>
+                    <button style="font-size:24px; color:red"><i class="fa fa-heart"></i></button>
                     </form>
                     @else
                     <form method="POST" action='/posts/like'> 
                     @csrf
                     <input type="hidden" name="post_id"    value="{{ $post->id }}" >
                     <input type="hidden" name="user_id"    value="{{ auth()->user()->id }}" >    
-                    <button style="font-size:24px; color:gray">{{$post->likes}}<i class="fa fa-heart"></i></button>
+                    <button style="font-size:24px; color:gray"><i class="fa fa-heart"></i></button>
                     </form>
                     @endif
                     @endauth
