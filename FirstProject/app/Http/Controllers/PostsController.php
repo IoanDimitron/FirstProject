@@ -28,7 +28,7 @@ class PostsController extends Controller
     function all(){
         $posts = Post::all();
         $likes = UserLike::all();
-        $userId = Auth()->user()->id;
+        $userId = Auth()->user() ? Auth()->user()->id : null;
         foreach($posts as $post)
         {
             $likesCount = 0;
@@ -48,25 +48,7 @@ class PostsController extends Controller
         }
         return view('posts.all', ['posts' => $posts, 'isAdmin' => $this->isAdmin]);
     }
-    function editPage($id)
-    {
-        if($this->isAdmin){
-        $post = Post::firstWhere("id", $id);
-        return view("posts.edit", ['post' => $post]);
-        }else return redirect("/posts");
-    }
-    function edit(Request $request, $id)
-    {
-        if($this->isAdmin){
-        $data=$request->all();
-        $post = Post::firstWhere("id", operator:$id);
-        $post->title= $data['title'];
-        $post->desc= $data['desc'];
-        $post->imgUrl= $data['imgUrl'];
-        $post->update();
-        }
-        return redirect("/posts");
-    }
+
     function delete($id){
         if($this->isAdmin){
         $post = Post::firstWhere("id", $id);
@@ -91,7 +73,7 @@ class PostsController extends Controller
     function MyLikedposts(){
         $posts = Post::all();
         $likes = UserLike::all();
-        $userId = Auth()->user()->id;
+        $userId = Auth()->user() ? Auth()->user()->id : null;
         foreach($posts as $post)
         {
             $likesCount = 0;

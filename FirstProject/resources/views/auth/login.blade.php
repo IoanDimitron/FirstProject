@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Log in">
     <center>
         <h1>Login</h1>
         <div class="card d-flex bg-dark text-light" style="width: 500px;padding: 20px">

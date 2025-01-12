@@ -9,12 +9,7 @@ use App\Http\Controllers\ProfileController;
 
 
 Route::get('/', [HomeController::class, 'index']);
-Route::post('/posts/create', [PostsController::class, 'create']);
-Route::get('/posts/create', [PostsController::class, 'createPage']);
 Route::get('/posts', [PostsController::class,'all']);
-Route::get('/posts/edit/{id}', [PostsController::class,'editPage']);
-Route::post('/posts/edit/{id}', [PostsController::class,'edit']);
-Route::get('/posts/delete/{id}', [PostsController::class,'delete']);
 Route::post('/posts/like', [PostsController::class,'like']);
 Route::post('/posts/unlike', [PostsController::class,'unlike']);
 Route::get('my-liked-posts', [PostsController::class, 'myLikedPosts']);
